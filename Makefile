@@ -26,9 +26,9 @@ define Package/$(LUCI_NAME)/postinst
 #!/bin/sh
 mkdir -p "$${IPKG_INSTROOT}/www/tinyfilemanager" 2>/dev/null
 [ ! -d "$${IPKG_INSTROOT}/www/tinyfilemanager/rootfs" ] && ln -s / "$${IPKG_INSTROOT}/www/tinyfilemanager/rootfs"
-total_size_limit=5G        #post_max_size = 8M
-single_size_limit=2G       #upload_max_filesize = 2M
-otime_uploads_limit=200    #max_file_uploads = 20
+total_size_limit=??        #Total size of multiple files
+single_size_limit=??       #Max single file size
+otime_uploads_limit=??     #Max count of simultaneous uploads
 sed -Ei "s|^(post_max_size) *=.*$$|\1 = $$total_size_limit|; \
          s|^(upload_max_filesize) *=.*$$|\1 = $$single_size_limit|; \
          s|^(max_file_uploads) *=.*$$|\1 = $$otime_uploads_limit|" \
